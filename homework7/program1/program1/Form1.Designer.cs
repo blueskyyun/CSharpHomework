@@ -34,27 +34,27 @@ namespace program1
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumRealDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.OrderDetails = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteOrder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.queryInput = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.OrderDetails = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DeleteOrder = new System.Windows.Forms.DataGridViewButtonColumn();
             this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.goodsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumRealDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,8 +96,50 @@ namespace program1
             this.dataGridView1.Size = new System.Drawing.Size(816, 451);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseDown);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValueNeeded);
             this.dataGridView1.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValuePushed);
+            // 
+            // orderNoDataGridViewTextBoxColumn
+            // 
+            this.orderNoDataGridViewTextBoxColumn.DataPropertyName = "OrderNo";
+            this.orderNoDataGridViewTextBoxColumn.HeaderText = "OrderNo";
+            this.orderNoDataGridViewTextBoxColumn.Name = "orderNoDataGridViewTextBoxColumn";
+            this.orderNoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderNoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            // 
+            // sumRealDataGridViewTextBoxColumn
+            // 
+            this.sumRealDataGridViewTextBoxColumn.DataPropertyName = "SumReal";
+            this.sumRealDataGridViewTextBoxColumn.HeaderText = "SumReal";
+            this.sumRealDataGridViewTextBoxColumn.Name = "sumRealDataGridViewTextBoxColumn";
+            this.sumRealDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sumRealDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sumRealDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // OrderDetails
+            // 
+            this.OrderDetails.HeaderText = "OrderDetails";
+            this.OrderDetails.Name = "OrderDetails";
+            this.OrderDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DeleteOrder
+            // 
+            this.DeleteOrder.HeaderText = "DeleteOrder";
+            this.DeleteOrder.Name = "DeleteOrder";
+            this.DeleteOrder.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(program1.Order);
             // 
             // comboBox1
             // 
@@ -161,20 +203,6 @@ namespace program1
             this.dataGridView2.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView2_CellValueNeeded);
             this.dataGridView2.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView2_CellValuePushed);
             // 
-            // OrderDetails
-            // 
-            this.OrderDetails.HeaderText = "OrderDetails";
-            this.OrderDetails.Name = "OrderDetails";
-            this.OrderDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // DeleteOrder
-            // 
-            this.DeleteOrder.HeaderText = "DeleteOrder";
-            this.DeleteOrder.Name = "DeleteOrder";
-            this.DeleteOrder.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // serialNoDataGridViewTextBoxColumn
             // 
             this.serialNoDataGridViewTextBoxColumn.DataPropertyName = "serialNo";
@@ -201,33 +229,6 @@ namespace program1
             // 
             this.orderDetailsBindingSource.DataSource = typeof(program1.OrderDetails);
             // 
-            // orderNoDataGridViewTextBoxColumn
-            // 
-            this.orderNoDataGridViewTextBoxColumn.DataPropertyName = "OrderNo";
-            this.orderNoDataGridViewTextBoxColumn.HeaderText = "OrderNo";
-            this.orderNoDataGridViewTextBoxColumn.Name = "orderNoDataGridViewTextBoxColumn";
-            this.orderNoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderNoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            // 
-            // sumRealDataGridViewTextBoxColumn
-            // 
-            this.sumRealDataGridViewTextBoxColumn.DataPropertyName = "SumReal";
-            this.sumRealDataGridViewTextBoxColumn.HeaderText = "SumReal";
-            this.sumRealDataGridViewTextBoxColumn.Name = "sumRealDataGridViewTextBoxColumn";
-            this.sumRealDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sumRealDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sumRealDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(program1.Order);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -242,11 +243,11 @@ namespace program1
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

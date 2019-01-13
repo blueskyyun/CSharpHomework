@@ -198,7 +198,10 @@ namespace program1
             orders[orderIndex].oDetails[e.RowIndex].Quantity = int.Parse(e.Value.ToString());
         }
 
-        
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     
 }

@@ -232,7 +232,7 @@ namespace program1
                     new XmlTextWriter(outFileStream, System.Text.Encoding.UTF8);
                 xt.Transform(nav, null, writer);
 
-
+		outFileStream.Close();
 
             }
             catch (XmlException ex)
